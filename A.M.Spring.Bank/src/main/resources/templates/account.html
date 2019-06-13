@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+  <title>Human Resources Management Console</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+<!-- MAIN-CONTENT -->
+<h2>Account</h2>
+  
+<div class="display-one" th:object="${account}">
+  <table>
+    <tr>
+      <td>Id</td>           <td th:text = "*{id}">ID</td>
+    </tr>
+    <tr>
+      <td>Account Number</td>       <td th:text = "*{number}">NUMBER</td>
+    </tr>
+    <tr>
+      <td>Client</td>     <td th:text = "*{client.firstName}">CLIENT_FIRST_NAME</td>
+    </tr>
+    <tr>
+      <td>Client</td>     <td th:text = "*{client.lastName}">CLIENT_LAST_NAME</td>
+    </tr>
+    
+  </table>
+</div>
+
+<br>
+
+<div>
+  <a th:href = "@{/accounts/form/} + ${account.id}"><input type="button" value="Update" ></a>
+  <a th:href = "@{/accounts/delete/} + ${account.id}"><input type="button" value="Delete" ></a>
+  <a th:href = "@{/accounts}"><input type="button" value="Back to accounts" ></a>
+  <p><a th:href = "@{/}"><input type="button" value="Main Menu" ></a></p>
+</div>
+
+</body>
+
+</html>

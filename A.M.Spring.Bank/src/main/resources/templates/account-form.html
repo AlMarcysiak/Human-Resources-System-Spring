@@ -1,0 +1,53 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+<title>Human Resources Management Console</title>
+<meta charset="utf-8">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+	<!-- MAIN-CONTENT -->
+	<h2>Account</h2>
+
+	<div class="display-form">
+		<form th:action="@{/accounts/save}" th:object="${account}" method="post">
+			<table>
+				<tr>
+					<td>Id</td>
+					<td th:text="*{id}">ID</td>
+					<td><input type="hidden" th:field="*{id}" /></td>
+				</tr>
+				<tr>
+					<td>Number</td>
+					<td><input type="number" min="0" th:field="*{number}" /></td>
+					<td class="error" th:if="${#fields.hasErrors('number')}"
+						th:errors="*{number}">ERROR</td>
+				</tr>
+				
+				<tr>
+					<td>Client id</td>
+					<td><select th:field="*{client.id}">
+							<option th:each="cl : ${clients}" th:value="${cl.id}"
+								th:text="${cl.firstName+' ' +cl.lastName}"></option>
+					</select></td>
+					<td class="error" th:if="${#fields.hasErrors('client')}"
+						th:errors="*{client}">ERROR</td>
+				</tr>
+				
+				
+				<tr>
+					<td><input type="submit" value="Submit"></td>
+					<td><a th:href="@{/accounts}"><input type="button" value="Cancel"></a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+
+
+.menu a {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;	
+}
+.menu {
+  max-width:900px;
+  
+}
+
+.menu-logout {
+  margin-right:0px; 
+  float:right
+}
+.menu-hline {
+  max-width:100%; 
+  border-color:#f0f0f0;
+}
+
+
+.bold {
+  font-weight: bold;
+}
+.red {
+	color: red;
+}
+
+.error {
+	color: red;
+}
+
+
+/* list-all */
+div.list-all table {
+  border-collapse: collapse; 
+  width: 100%;
+}
+div.list-all td, th {
+  border: 1px solid #7f7f7f;
+  padding: 4px;  
+   background: #bdd7eb;
+}
+
+
+/* display-one */
+div.display-one table {
+  border-collapse: collapse;
+  text-align: center;
+  
+}
+div.display-one td, th {
+  border: 1px solid #636363;
+  vertical-align: top;
+  padding: 4px 10px 4px 10px;
+  text-align: center;  
+   background: #d6d6d6;
+}
+
+
+/* display-form */
+div.display-form table {
+  border-collapse: collapse;
+  text-align: center;
+}
+div.display-form td, th {
+  vertical-align: top;
+  padding: 4px 10px 4px 10px;
+  margin-left: 10px;
+  text-align: center;
+  
+  
+}
+div.display-form label {
+  font-weight: bold;
+}
+
+
+div.employee {
+  display:table-row;
+}
+div.employee span {
+  display:table-cell;
+  padding-right:30px;
+}
+
+

@@ -1,0 +1,48 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+  <title>Human Resources Management Console</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+<!-- MAIN-CONTENT -->
+<h2>Departments</h2>
+
+<!-- Adding button -->
+
+
+  
+<div class="list-all" style="width:300px;">
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+    </tr>
+    
+    <th:block th:each = "dep : ${departments}">
+      <tr>
+        <td th:text = "${dep.id}">ID</td>
+        <td><a th:href = "@{/departments/} + ${dep.id}" th:text = "${dep.name}">NAME</a></td>
+      </tr>
+    </th:block>
+  
+  </table>
+</div>
+
+<br>
+
+<div>
+  
+ <a th:href = "@{/departments/form}"><input type="button" value="Create New Department"></a> 
+ 
+  <p><a th:href = "@{/}"><input type="button" value="Main Menu"></a></p>
+</div>
+
+</body>
+
+</html>

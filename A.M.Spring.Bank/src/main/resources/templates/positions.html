@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+  <title>Human Resources Management Console</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+<!-- MAIN-CONTENT -->
+<h2>Positions</h2>
+  
+<div class="list-all" style="width:300px;">
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+    </tr>
+    
+    <th:block th:each = "pos : ${positions}">
+      <tr>
+        <td th:text = "${pos.id}">ID</td>
+        <td><a th:href = "@{/positions/} + ${pos.id}" th:text = "${pos.name}">NAME</a></td>
+      </tr>
+    </th:block>
+  
+  </table>
+</div>
+
+<br>
+
+<div>
+<a th:href = "@{/positions/form}"><input type="button" value="Create New Position"></a> 
+  <p><a th:href = "@{/}"><input type="button" value="Main Menu"></a></p>
+</div>
+
+</body>
+
+</html>

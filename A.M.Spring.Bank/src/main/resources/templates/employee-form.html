@@ -1,0 +1,99 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+<title>Human Resources Management Console</title>
+<meta charset="utf-8">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+	<!-- MAIN-CONTENT -->
+	<h2>Employee</h2>
+
+	<div class="display-form">
+		<form th:action="@{/employees/save}" th:object="${employee}"
+			method="post">
+			<table>
+				<tr>
+					<td>Id</td>
+					<td th:text="*{id}">ID</td>
+					<td><input type="hidden" th:field="*{id}" /></td>
+				</tr>
+				<tr>
+					<td>First name</td>
+					<td><input type="text" th:field="*{firstName}" /></td>
+					<td class="error" th:if="${#fields.hasErrors('firstName')}"
+						th:errors="*{firstName}">ERROR</td>
+				</tr>
+				<tr>
+					<td>Last name</td>
+					<td><input type="text" th:field="*{lastName}" /></td>
+					<td class="error" th:if="${#fields.hasErrors('lastName')}"
+						th:errors="*{lastName}">ERROR</td>
+				</tr>
+				<tr>
+					<td>Hire date</td>
+					<td><input type="date" th:field="*{hireDate}" /></td>
+					<td class="error" th:if="${#fields.hasErrors('hireDate')}"
+						th:errors="*{hireDate}">ERROR</td>
+				</tr>
+				<tr>
+					<td>Salary</td>
+					<td><input type="number" min="0" th:field="*{salary}" /></td>
+					<td class="error" th:if="${#fields.hasErrors('salary')}"
+						th:errors="*{salary}">ERROR</td>
+				</tr>
+				<tr>
+					<td>Position</td>
+					<td>
+						<select th:field="*{position.id}">
+							<option th:each="pos : ${positions}" th:value="${pos.id}"
+								th:text="${pos.name}"></option>
+					</select>
+					</td>
+					<td class="error" th:if="${#fields.hasErrors('position')}"
+						th:errors="*{position}">ERROR</td>
+				</tr>
+				<tr>
+					<td>Department</td>
+					<td><select th:field="*{department.id}">
+							<option th:each="dep : ${departments}" th:value="${dep.id}"
+								th:text="${dep.name}"></option>
+					</select></td>
+					<td class="error" th:if="${#fields.hasErrors('department')}"
+						th:errors="*{department}">ERROR</td>
+				</tr>
+				<tr>
+					<td>Job grade</td>
+					<td><select th:field="*{jobGrade.id}">
+							<option th:each="jg : ${jobGrades}" th:value="${jg.id}"
+								th:text="${jg.name}"></option>
+					</select></td>
+					<td class="error" th:if="${#fields.hasErrors('jobGrade')}"
+						th:errors="*{jobGrade}">ERROR</td>
+				</tr>
+				<tr>
+					<td>Branch</td>
+					<td><select th:field="*{branch.id}">
+							<option th:each="br : ${branches}" th:value="${br.id}"
+								th:text="${br.name}"></option>
+					</select></td>
+					<td class="error" th:if="${#fields.hasErrors('branch')}"
+						th:errors="*{branch}">ERROR</td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit"></td>
+					<td><a th:href="@{/employees}"><input type="button"
+							value="Cancel"></a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+
+</html>

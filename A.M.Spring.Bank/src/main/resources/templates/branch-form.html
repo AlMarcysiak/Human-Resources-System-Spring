@@ -1,0 +1,50 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+<title>Human Resources Management Console</title>
+<meta charset="utf-8">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+	<!-- MAIN-CONTENT -->
+	<h2>Branch</h2>
+
+	<div class="branch-form">
+		<form th:action="@{/branches/save}" th:object="${branch}" method="post">
+			<table>
+				<tr>
+					<td>Id</td>
+					<td th:text="*{id}">ID</td>
+					<td><input type="hidden" th:field="*{id}" /></td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td><input type="text" th:field="*{name}" /></td>
+					<td class="error" th:if="${#fields.hasErrors('name')}"
+						th:errors="*{name}">ERROR</td>
+				</tr>
+				<tr>
+					<td>City</td>
+					<td><select th:field="*{city.id}">
+							<option th:each="city : ${cities}" th:value="${city.id}"
+								th:text="${city.name}"></option>
+					</select></td>
+					<td class="error" th:if="${#fields.hasErrors('city')}"
+						th:errors="*{city}">ERROR</td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit"></td>
+					<td><a th:href="@{/branches}"><input type="button" value="Cancel"></a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+
+</html>

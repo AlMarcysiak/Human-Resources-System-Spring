@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+  <title>Human Resources Management Console</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+<!-- MAIN-CONTENT -->
+ <h2>City</h2>
+  
+<div class="display-one" th:object="${city}">
+  <table>
+    <tr>
+      <td>Id</td>         <td th:text="*{id}">ID</td>
+    </tr>
+    <tr>
+      <td>Name</td>       <td th:text="*{name}">NAME</td>
+    </tr>
+    <tr>
+      <td>Voivodeship</td>       <td th:text="*{voivodeship}">VOIVODESHIP</td>
+    </tr>
+     
+  </table>
+</div>
+
+<br>
+
+<div>
+  
+  <a th:href = "@{/cities}"><input type="button" value="Back"></a>
+  <p><a th:href = "@{/}"><input type="button" value="Main Menu"></a></p>
+</div>
+
+</body>
+
+</html>
+
+
+
+

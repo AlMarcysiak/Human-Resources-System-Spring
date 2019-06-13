@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+  <title>Human Resources Management Console</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+<!-- MAIN-CONTENT -->
+<h2>Client</h2>
+  
+<div class="display-one" th:object="${client}">
+  <table>
+    <tr>
+      <td>Id</td>           <td th:text = "*{id}">ID</td>
+    </tr>
+    <tr>
+      <td>First name</td>   <td th:text = "*{firstName}">FIRST NAME</td>
+    </tr>
+    <tr>
+      <td>Last name</td>    <td th:text = "*{lastName}">LAST NAME</td>
+    </tr>
+    <tr>
+      <td>date</td>    <td th:text = "*{date}">DATE</td>
+    </tr>
+    
+  </table>
+</div>
+
+<br>
+
+<div>
+  <a th:href = "@{/clients/form/} + ${client.id}"><input type="button" value="Update" ></a>
+  <a th:href = "@{/clients/delete/} + ${client.id}"><input type="button" value="Delete" ></a>
+  <a th:href = "@{/clients}"><input type="button" value="Back" ></a>
+  <p><a th:href = "@{/}"><input type="button" value="Main Menu" ></a></p>
+</div>
+
+</body>
+
+</html>

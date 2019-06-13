@@ -1,0 +1,47 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+<title>Human Resources Management Console</title>
+<meta charset="utf-8">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+
+</head>
+
+<body>
+
+	<!-- MAIN-CONTENT -->
+	<h2>Accounts</h2>
+
+	<div class="list-all" style="width: 500px;">
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Account Number</th>
+				<th>Client</th>
+				
+			</tr>
+
+			<th:block th:each="acc : ${accounts}">
+				<tr>
+					<td th:text="${acc.id}">ID</td>
+					<td><a th:href="@{/accounts/} + ${acc.id}" th:text="${acc.number}">NUMBER</a></td>
+					<td><a th:href="@{/clients}" th:text="${acc.client.firstName+' '+ acc.client.lastName}">FULL_NAME</a></td>
+					
+				</tr>
+				
+			</th:block>
+
+		</table>
+	</div>
+<br>
+
+<div>
+  <p><a th:href = "@{/accounts/form}"><input type="button" value="Create New Account" ></a></p>
+  <p><a th:href = "@{/}"><input type="button" value="Main Menu" ></a></p>
+</div>
+</body>
+
+</html>

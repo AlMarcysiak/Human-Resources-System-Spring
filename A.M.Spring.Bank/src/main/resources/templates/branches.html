@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+<title>Human Resources Management Console</title>
+<meta charset="utf-8">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+	<!-- MAIN-CONTENT -->
+	<h2>Braches</h2>
+
+	<div class="list-all" style="width: 300px;">
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>City</th>
+			</tr>
+
+			<th:block th:each="br : ${branches}">
+				<tr>
+					<td th:text="${br.id}">ID</td>
+					<td><a th:href="@{/branches/} + ${br.id}" th:text="${br.name}">NAME</a></td>
+					<td th:text="${br.city.name}">CITY</td>
+				</tr>
+			</th:block>
+
+		</table>
+	</div>
+
+	<br>
+
+<div>
+  <p><a th:href = "@{/branches/form}"><input type="button" value="Create New Branch" ></a></p>
+  <p><a th:href = "@{/}"><input type="button" value="Main Menu" ></a></p>
+</div>
+
+
+</body>
+
+</html>

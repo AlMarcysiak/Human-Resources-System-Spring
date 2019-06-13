@@ -1,0 +1,54 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head>
+<title>Human Resources Management Console</title>
+<meta charset="utf-8">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+	<!-- MAIN-CONTENT -->
+	<h2>Client</h2>
+
+	<div class="display-form">
+		<form th:action="@{/clients/save}" th:object="${client}" method="post">
+			<table>
+				<tr>
+					<td>Id</td>
+					<td th:text="*{id}">ID</td>
+					<td><input type="hidden" th:field="*{id}" /></td>
+				</tr>
+				<tr>
+					<td>First Name</td>
+					<td><input type="text" th:field="*{firstName}" /></td>
+					<td class="error" th:if="${#fields.hasErrors('firstName')}"
+						th:errors="*{firstName}">ERROR</td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td><input type="text" th:field="*{lastName}" /></td>
+					<td class="error" th:if="${#fields.hasErrors('lastName')}"
+						th:errors="*{lastName}">ERROR</td>
+				</tr>
+				<tr>
+					<td>Date</td>
+					<td><input type="date" th:field="*{date}" /></td>
+					<td class="error" th:if="${#fields.hasErrors('date')}"
+						th:errors="*{date}">ERROR</td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit"></td>
+					<td><a th:href="@{/clients}"><input type="button"
+							value="Cancel"></a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</body>
+
+</html>
