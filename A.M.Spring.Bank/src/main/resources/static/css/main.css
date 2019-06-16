@@ -6,6 +6,7 @@
   right: 35px;
   top: 35px;
   cursor: pointer;	
+  
 }
 .menu {
   max-width:900px;
@@ -14,11 +15,12 @@
 
 .menu-logout {
   margin-right:0px; 
-  float:right
+  float:right;
 }
 .menu-hline {
   max-width:100%; 
   border-color:#f0f0f0;
+
 }
 
 
@@ -85,6 +87,7 @@ div.employee {
 div.employee span {
   display:table-cell;
   padding-right:30px;
+  
 }
 
 
