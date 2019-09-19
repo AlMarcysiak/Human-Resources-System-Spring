@@ -10,3 +10,5 @@ import bank.hr.model.Client;
 public interface AccountRepository extends JpaRepository<Account, Long> {
 	public List<Client> findAllByClient(Account account );
 }
+
+
