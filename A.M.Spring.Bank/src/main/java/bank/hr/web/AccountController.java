@@ -101,7 +101,6 @@ public class AccountController {
 				Client client = clRepo.findById(clientId).get();
 				account.setClient(client);
 			}
-
 		}
 
 		accRepo.save(account);
@@ -120,5 +119,4 @@ public class AccountController {
 
 		return "redirect:/accounts";
 	}
-
 }
