@@ -43,7 +43,6 @@ public class Employee {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate hireDate;
 	
-	
 	@Column(name="salary")
 	private double salary;
 
